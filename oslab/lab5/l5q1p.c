@@ -11,7 +11,6 @@ int main() {
 	int pipe_fd;
 	int res;
 	int open_mode = O_WRONLY;
-	int bytes_sent = 0;
 	char buffer[4]= {'1','2','3','4'};
 	if (access(FIFO_NAME, F_OK) == -1) {
 		res = mkfifo(FIFO_NAME, 0777);
