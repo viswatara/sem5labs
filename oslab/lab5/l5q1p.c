@@ -7,8 +7,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #define FIFO_NAME "/tmp/my_fifo"
-#define BUFFER_SIZE 7
-#define TEN_MEG (1024 * 1024 * 10)
 int main() {
 	int pipe_fd;
 	int res;
@@ -28,14 +26,10 @@ int main() {
 	printf("\nProcess %d result %d\n", getpid(), pipe_fd);
 
 	if (pipe_fd != -1) {
-		while(bytes_sent < 4) {
-				res = write(pipe_fd,buffer,strlen(buffer));
-				if (res == -1) {
-					fprintf(stderr, "Write error on pipe\n");
-					exit(EXIT_FAILURE);
-				}
-				printf("%d ",res);
-				bytes_sent++;
+			res = write(pipe_fd,buffer,strlen(buffer));
+			if (res == -1) {
+				fprintf(stderr, "Write error on pipe\n");
+				exit(EXIT_FAILURE);
 			}
 		(void)close(pipe_fd);
 	}
