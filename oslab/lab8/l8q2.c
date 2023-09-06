@@ -10,8 +10,10 @@ typedef struct {
 void* child_thread(void* arg) {
     ThreadArgs* args = (ThreadArgs*)arg;
     args->sum = 0;
-    for (int i = 0; i <= args->size; i++) {
-        args->sum += args->array[i];
+    for (int i = 0; i < args->size; i++) {
+        if(args->array[i]>0) {
+            args->sum += args->array[i];
+        }
     }
     return NULL;
 }
