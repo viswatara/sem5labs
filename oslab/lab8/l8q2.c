@@ -33,6 +33,6 @@ int main() {
     args.size=n;
     pthread_create(&thread, NULL, &child_thread, &args);
     pthread_join(thread, NULL);
-    printf("Sum of the entered elements: %d\n", args.sum);
+    printf("Sum of the non-negative elements: %d\n", args.sum);
     return 0;
 }
