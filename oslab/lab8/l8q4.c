@@ -17,7 +17,7 @@ int isOdd(int n) {
 void* evensum(void* arg) {
     ThreadArgs* args = (ThreadArgs*)arg;
     args->evensum = 0;
-    for (int i = 0; i <= args->size; i++) {
+    for (int i = 0; i < args->size; i++) {
        if(isOdd(args->array[i])==0){
         args->evensum+=args->array[i];
        }
@@ -28,7 +28,7 @@ void* evensum(void* arg) {
 void* oddsum(void* arg) {
     ThreadArgs* args = (ThreadArgs*)arg;
     args->oddsum = 0;
-    for (int i = 0; i <= args->size; i++) {
+    for (int i = 0; i < args->size; i++) {
        if(isOdd(args->array[i])){
         args->oddsum+=args->array[i];
        }
